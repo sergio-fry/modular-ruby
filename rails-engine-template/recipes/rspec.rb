@@ -7,12 +7,12 @@ end
 
 # Add the gems
 inject_into_file GEMSPEC_FILE, before: %r{^end$} do
-  %(
-    spec.add_development_dependency 'rspec-rails'
-    spec.add_development_dependency 'capybara'
-    spec.add_development_dependency 'factory_bot_rails'
-    spec.add_development_dependency 'spring-commands-rspec'
-  )
+  <<-CODE
+  spec.add_development_dependency 'rspec-rails'
+  spec.add_development_dependency 'capybara'
+  spec.add_development_dependency 'factory_bot_rails'
+  spec.add_development_dependency 'spring-commands-rspec'
+  CODE
 end
 
 bundle
@@ -32,9 +32,8 @@ append_to_file "Rakefile" do
 end
 
 # Setting rspec and factory_bot as default generators...
-insert_into_file "lib/#{name}/engine.rb", after: /isolate_namespace .*$/ do
+insert_into_file "lib/#{name.split("-").join("/")}/engine.rb", after: /isolate_namespace .*$/ do
   %(
-
       config.generators do |g|
         g.test_framework :rspec, fixtures: false
         g.fixture_replacement :factory_bot, dir: 'spec/factories'
@@ -71,3 +70,5 @@ run "touch config/spring.rb"
 append_to_file "config/spring.rb", <<~TEXT
   Spring.application_root='spec/dummy'
 TEXT
+
+run "bundle binstub spring"
