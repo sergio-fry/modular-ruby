@@ -10,10 +10,12 @@ else
   Dir.chdir curdir
 
   append_to_file ".gitignore" do
-    "spec/dummy/db/*.sqlite3
-    spec/dummy/db/*.sqlite3-journal
-    spec/dummy/log/*.log
-    spec/dummy/tmp/
-    spec/dummy/.sass-cache"
+    <<~CODE
+      spec/dummy/db/*.sqlite3
+      spec/dummy/db/*.sqlite3-journal
+      spec/dummy/log/*.log
+      spec/dummy/tmp/
+      spec/dummy/.sass-cache
+    CODE
   end
 end

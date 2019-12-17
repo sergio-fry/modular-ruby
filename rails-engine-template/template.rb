@@ -28,3 +28,9 @@ say %(
     - edit #{name}.gemspec to set correct info and remove bundler warnings.
     - rake db:migrate
 )
+
+append_to_file ".gitignore" do
+  <<~CODE
+    .vimrc
+  CODE
+end
