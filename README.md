@@ -1,2 +1,3 @@
-# modular-ruby
-Modular Ruby
+# Modular Ruby
+
+Let's build modular ruby applications. Monolith first.
