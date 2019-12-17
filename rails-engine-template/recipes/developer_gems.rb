@@ -7,5 +7,3 @@ inject_into_file GEMSPEC_FILE, before: %r{^end$} do
 end
 
 bundle
-
-git_commit "Adding development gems"

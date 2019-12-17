@@ -14,18 +14,9 @@ end
 
 exit 1 if error
 
-def git_commit(message)
-  git add: '.'
-  git commit: "-m '#{message}' -q"
-end
-
 def bundle
   run "bundle install --quiet"
 end
-
-say "Creating git repository..."
-git :init
-git_commit "Initial commit of empty Rails engine."
 
 GEMSPEC_FILE = File.join(destination_root, "#{name}.gemspec")
 RECIPE_PATH = File.join(File.dirname(rails_template), "recipes")

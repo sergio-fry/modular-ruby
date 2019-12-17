@@ -67,8 +67,6 @@ insert_into_file 'spec/rails_helper.rb', after: "RSpec.configure do |config|" do
 }
 end
 
-git_commit "Installed rspec"
-
 run "touch config/spring.rb"
 append_to_file 'config/spring.rb', <<-TEXT
 Spring.application_root='spec/dummy'

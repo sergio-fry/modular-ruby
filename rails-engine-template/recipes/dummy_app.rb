@@ -16,6 +16,4 @@ spec/dummy/log/*.log
 spec/dummy/tmp/
 spec/dummy/.sass-cache"
   end
-
-  git_commit "Set up dummy app in spec folder."
 end
