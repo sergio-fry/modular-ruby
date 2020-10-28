@@ -1,3 +1,8 @@
 #!/usr/bin/env ruby
 
+require "dry/cli"
 require "modul"
+require "modul/cli/commands"
+require "modul/cli/commands/version"
+
+Dry::CLI.new(Modul::CLI::Commands).call
