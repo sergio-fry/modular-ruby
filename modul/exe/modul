@@ -4,5 +4,6 @@ require "dry/cli"
 require "modul"
 require "modul/cli/commands"
 require "modul/cli/commands/version"
+require "modul/cli/commands/project"
 
 Dry::CLI.new(Modul::CLI::Commands).call
